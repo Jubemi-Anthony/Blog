@@ -1,0 +1,195 @@
+#Post{
+    width: 100vw;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+#Post .Post{
+    width: 90%;
+    margin: auto;
+}
+.ql-size-large{
+    color: var(--color-1);
+    font-size: 2rem;
+}
+.ql-indent-1{
+    margin-left: 25px;
+}
+.ql-size-huge{
+    font-size: 3rem;
+    color: var(--color-2);
+}
+.ql-size-small{
+    font-size: 0.6rem;
+}
+strong{
+    color: var(--color-2);
+}
+em{
+    font-style: italic;
+    font-weight: 500;
+}
+#Post .Post .content img{
+    width: 40%;
+}
+#Post .Post a{
+    font-style: italic;
+    color: var(--color-3);
+    text-decoration: underline;
+}
+#Post ol{
+    margin-left: 30px;
+    display: list-item;
+    list-style: lower-roman;
+}
+#Post ul{
+    margin-left: 30px;
+}
+.ql-font-monospace{
+    font-family: monospace;
+}
+#Post .content{
+    font-family: 'Merriweather', sans-serif;
+    margin: 30px 0;
+    width: 100%;
+}
+#Post .big-bold{
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#Post .det{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+#Post .category, #Post .time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-1);
+    background-color: var(--color-1);
+    color: var(--color-5);
+    padding: 3px;
+}
+#Post .time{
+    border: 1px solid var(--color-4);
+    background-color: var(--color-4);
+    color: var(--color-1);
+}
+#Post h3{
+    color: var(--color-2);
+}
+.PostFoot{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+.PostFoot .but{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    border: 1px solid var(--color-1);
+    background-color: var(--color-5);
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.PostFoot span{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-1);
+    font-family: monospace;
+}
+#Post .comments{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    background-color: var(--color-5);
+    border-top: 1px solid var(--color-4);
+    padding: 20px 10px;
+    gap: 10px;
+}
+#Post .comment{
+    display: flex;
+    border-bottom: 1px solid var(--color-4);
+    gap: 5px;
+    padding: 5px 0;
+}
+#Post .com-d{
+    width: 90%;
+    background-color: var(--color-4);
+    border-radius: 10px;
+    border: 1px solid var(--color-4);
+    padding: 5px;
+}
+#Post .com-d p:first-child{
+    color: var(--color-1);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+}
+#Post .com-d p:nth-child(2){
+    margin-bottom: 3px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 95%;
+    margin-left: auto;
+}
+#Post .com-d p:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-6);
+    border-radius: 10px;
+    background-color: var(--color-6);
+    color: var(--color-1);
+    padding: 2px;
+    width: 110px;
+    margin-left: auto;
+}
+#overlay img{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    filter: brightness(0.5);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+#overlay form{
+    background-color: var(--color-4);
+    height: 50vh;
+    width: 90vw;
+    margin: auto;
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+}
+#overlay textarea{
+    width: 80%;
+    height: 70%;
+    border-radius: 5px;
+    border: 1px solid var(--color-4);
+    padding: 5px;
+}
+#overlay button{
+    width: 70%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--color-1);
+    color: var(--color-6);
+    border: 1px solid var(--color-1);
+    font-family: 'Lobster', cursive;
+    text-transform: uppercase;
+}
+@media(max-width: 700px){
+
+}

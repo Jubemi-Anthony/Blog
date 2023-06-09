@@ -1,0 +1,201 @@
+:root {
+  --color-1: #03045e;
+  --color-2: #0077b6;
+  --color-3: #00b4d8;
+  --color-4: #90e0ef;
+  --color-5: #caf0f8;
+  --color-6: #f6fff8;
+}
+/*BLOG PAGE*/
+#Blog .sec-1{
+  width: 100%;
+  min-height: 55vh;
+  background:
+  url("https://images.pexels.com/photos/707582/pexels-photo-707582.jpeg?auto=compress&cs=tinysrgb&w=600");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+}
+#Blog .sec-1 div{
+  width: 40%;
+  height: 100%;
+  margin-bottom: 3%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#Blog .sec-1 .big-bold{
+  text-transform: capitalize;
+  color: var(--color-1);
+}
+#Blog .sec-1 .button{
+  background-color: var(--color-1);
+  border-color: var(--color-1);
+  color: var(--color-6);
+}
+#Blog .sec-1 .button:hover{
+  background-color: var(--color-6);
+  border-color: var(--color-1);
+  color: var(--color-1);
+  transition: 0.5s;
+}
+#Blog .sec-2{
+  display: flex;
+  padding: 15px;
+  width: 100%;
+  overflow-x: hidden;
+}
+#Blog .sec-2 .left{
+  width: 70%;
+}
+#Blog .sec-2 .left .grided{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+#Blog .sec-2 .left .big-bold,
+#Blog .sec-2 .right .big-bold{
+  font-weight: 600;
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+#Single{
+  width: 90%;
+  margin: auto;
+  color: var(--color-1);
+  margin-bottom: 10px;
+  min-height: 420px;
+  text-transform: capitalize;
+}
+#Single .button{
+  font-weight: bold;
+  transition: 0.6s;
+  cursor: pointer;
+}
+#Single .button:hover{
+  background-color: var(--color-1);
+  color: var(--color-6);
+  border-color: var(--color-1);
+}
+#Single img{
+  width: 100%;
+  border-radius: 10px;
+}
+#Single .topic{
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#Single .about{
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+#Blog .sec-2 .right{
+  width: 30%;
+}
+#Blog .sec-2 .right .big-bold{
+  font-size: 1.5rem;
+}
+#Blog .sec-2 .right .search{
+  display: flex;
+  border: 1px solid var(--color-1);
+  border-radius: 15px;
+  align-items: center;
+  width: 70%;
+  padding: 3px;
+  margin: 30px auto;
+}
+#Blog .sec-2 .right .search input{
+  width: 95%;
+  border: none;
+  background-color: transparent;
+}
+#Blog .sec-2 .right .aligned{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90%;
+  margin: auto;
+}
+#Tops{
+  display: flex;
+  border-bottom: 1px solid var(--color-1);
+  padding-bottom: 10px;
+  align-items: center;
+  gap: 3px;
+}
+#Tops img{
+  width: 100px;
+}
+#Blog .sec-2 .right .socials{
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+#Blog .sec-2 .right .socials .icon{
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+@media(max-width: 700px){
+  #big-scr{
+    display: none;
+    opacity: 0;
+    height: 0vh;
+    margin-bottom: 20px;
+  }
+  #Blog .sec-1{
+    min-height: 30vh;
+  }
+  #Blog .sec-1 div{
+    width: 50%;
+  }
+  #Blog .sec-1 .big-bold{
+    font-size: 1rem;
+  }
+  #Blog .sec-2{
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 15px;
+  }
+  #Blog .sec-2 .left{
+    width: 100%;
+  }
+  #Blog .sec-2 .left .grided{
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+  }
+  #Single{
+    width: 95%;
+    margin-bottom: 10px;
+    min-height: 350px;
+    border-bottom: 1px solid var(--color-4);
+  }
+  #Blog .sec-2 .right{
+    width: 95%;
+  }
+  #Blog .sec-2 .right .big-bold{
+    font-size: 1.5rem;
+  }
+  #Blog .sec-2 .right .search{
+    width: 90%;
+  }
+  #Blog .sec-2 .right .aligned{
+    width: 90%;
+  }
+  #Tops{
+    display: flex;
+  }
+  #Blog .sec-2 .right .socials{
+    gap: 7px;
+    justify-content: center;
+  }
+  #Blog .sec-2 .right .socials .icon{
+    width: 30px;
+    height: 30px;
+  } 
+}

@@ -1,0 +1,35 @@
+Front End Development:
+
+1. (DONE) Create a new Next.js project and set up the necessary project structure.
+2. (DONE) Design and implement the landing page of your blogsite. This page should include a list of blog posts, displaying their titles, excerpts, and any other relevant information.
+3. (DONE) Implement a blog post detail page that displays the full content of a selected blog post.
+4. (DONE) Set up a registration and login system for users. Design and implement the user authentication pages, such as registration, login.
+    I. (DONE) And password recovery.
+5. () Create a user dashboard page where logged-in users can manage their profile, view their liked posts, and access any other user-specific features.
+6. (DONE) Build a comment section for each blog post, allowing users to submit comments and view existing comments. 
+      (NOT DOING THIS)Implement features like comment pagination, editing, and deletion.
+7. (DONE) Implement the like functionality, allowing users to like and unlike blog posts. Display the number of likes on each post
+    I. Update them in real-time.
+8. (DONE) Design and implement the admin interface, including an admin login page and a dashboard for managing blog posts and user accounts.
+
+
+Backend Development:
+
+9.  () Set up the backend server using a framework like Express.js or Next.js API routes.
+10. (DONE) Implement APIs for user registration, login, and password recovery. Include features like email verification and password hashing for security.
+11. () Create API endpoints for fetching blog posts, individual post details, and user-specific data (e.g., liked posts).
+12. () Implement APIs for adding new blog posts and managing existing posts (e.g., updating, deleting).
+13. () Develop APIs for comment management, including creating, editing, and deleting comments.
+14. () Implement API endpoints for handling like/unlike actions on blog posts.
+15. () Create the necessary database schema or models to store blog posts, user information, comments, and likes.
+16. () Integrate the frontend with the backend APIs, making HTTP requests to retrieve and update data as needed.
+
+
+Deployment:
+
+17. () Set up a hosting environment for your Next.js application, such as Vercel, Heroku, or AWS.
+18. () Deploy your frontend code and ensure that it's accessible to users.
+19. () Configure the backend server deployment and connect it to your frontend.
+20. () Set up any necessary environment variables and configurations required for production deployment.
+21. () Test the deployed application thoroughly to ensure all features are working as expected.
+22. () Monitor the application's performance and troubleshoot any issues that arise.

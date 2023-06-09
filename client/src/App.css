@@ -1,0 +1,146 @@
+:root {
+  --color-1: #03045e;
+  --color-2: #0077b6;
+  --color-3: #00b4d8;
+  --color-4: #90e0ef;
+  --color-5: #caf0f8;
+  --color-6: #f6fff8;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#APP{
+  width: 100vw;
+  overflow-x: hidden;
+}
+body{
+  background-color: var(--color-6);
+  width: 100vw;
+  overflow-x: hidden;
+}
+a{
+  text-decoration: none;
+  color: var(--color-1);
+}
+/*GLOBALS*/
+input:focus, textarea:focus {
+  outline: none;
+}
+.logo{
+  font-family: 'Lobster', cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-1);
+}
+.big-bold{
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-1);
+  font-family: 'Lobster', cursive;
+}
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 15px;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  width: 110px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  width: 100vw;
+}
+nav div{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+nav .button:hover{
+  background-color: var(--color-1);
+  color: var(--color-6);
+  border-color: var(--color-1);
+}
+.icon{
+  width: 25px;
+  height: 25px;
+}
+.profile{
+  display: flex;
+  align-items: center;
+  border-left: 1px solid var(--color-1);
+  font-family: 'Lobster', cursive;
+  padding-left: 3px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  gap: 2px;
+}
+.profile .icon{
+  border-radius: 100%;
+}
+
+@media(max-width: 700px){
+
+  /*GLOBALS*/
+  .logo{
+    font-family: 'Lobster', cursive;
+    font-size: 1rem;
+  }
+  .big-bold{
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-1);
+    font-family: 'Lobster', cursive;
+  }
+  .button{
+    padding: 4px 8px;
+    border-radius: 5px;
+    width: 80px;
+    font-size: 0.8rem;
+  }
+  nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+  }
+  nav div{
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    gap: 30px;
+  }
+  nav .button:hover{
+    background-color: var(--color-1);
+    color: var(--color-6);
+    border-color: var(--color-1);
+  }
+  .icon{
+    width: 25px;
+    height: 25px;
+  }
+  .profile{
+    display: flex;
+    align-items: center;
+    border-left: 1px solid var(--color-1);
+    font-family: 'Lobster', cursive;
+    padding-left: 3px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    gap: 2px;
+  }
+  .profile .icon{
+    border-radius: 100%;
+  }
+  
+}
