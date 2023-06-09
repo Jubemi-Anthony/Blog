@@ -191,5 +191,7 @@ em{
     text-transform: uppercase;
 }
 @media(max-width: 700px){
-
+    #Post .Post .content img{
+        width: 60%;
+    }
 }
