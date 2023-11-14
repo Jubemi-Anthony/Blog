@@ -66,15 +66,19 @@ em{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--color-1);
-    background-color: var(--color-1);
-    color: var(--color-5);
+    border: 1px solid var(--color-2);
+    background-color: var(--color-2);
+    color: var(--color-6);
     padding: 3px;
+    text-transform: capitalize;
 }
 #Post .time{
-    border: 1px solid var(--color-4);
-    background-color: var(--color-4);
-    color: var(--color-1);
+    border: 1px solid var(--color-3);
+    background-color: var(--color-3);
+    color: var(--color-6);
+}
+.comment-time{
+    text-transform: capitalize;
 }
 #Post h3{
     color: var(--color-2);
@@ -91,7 +95,7 @@ em{
     gap: 5px;
     align-items: center;
     border: 1px solid var(--color-1);
-    background-color: var(--color-5);
+    background-color: var(--color-6);
     padding: 3px;
     border-radius: 5px;
     cursor: pointer;
@@ -106,22 +110,22 @@ em{
     display: flex;
     flex-direction: column;
     margin-top: 20px;
-    background-color: var(--color-5);
+    background-color: var(--color-6);
     border-top: 1px solid var(--color-4);
     padding: 20px 10px;
     gap: 10px;
 }
 #Post .comment{
     display: flex;
-    border-bottom: 1px solid var(--color-4);
+    border-bottom: 1px solid var(--color-5);
     gap: 5px;
     padding: 5px 0;
 }
 #Post .com-d{
     width: 90%;
-    background-color: var(--color-4);
+    background-color: var(--color-6);
     border-radius: 10px;
-    border: 1px solid var(--color-4);
+    border: 1px solid var(--color-5);
     padding: 5px;
 }
 #Post .com-d p:first-child{

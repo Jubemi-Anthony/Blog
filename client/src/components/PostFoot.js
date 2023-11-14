@@ -2,11 +2,11 @@ const PostFoot = ({onOpen, number, likePost, numberL}) => {
   return (
     <div className="PostFoot">
         <div className="but" onClick={likePost}>
-            <img className="icon" src="https://cdn0.iconfinder.com/data/icons/crowdfunding-grey-version/64/b-01-64.png" alt="like"/>
+            <img className="icon" src="https://cdn2.iconfinder.com/data/icons/sketchy-basic-icons/94/heart-64.png" alt="like"/>
             <span>{numberL}</span>
         </div>
         <div className="but" onClick={onOpen}>
-            <img className="icon" src="https://cdn4.iconfinder.com/data/icons/advertising-soft/512/message_chat_comment_talk_voice_speech_speak-64.png" alt="comment"/>
+            <img className="icon" src="https://cdn3.iconfinder.com/data/icons/linecons-free-vector-icons-pack/32/bubble-64.png" alt="comment"/>
             <span>{number}</span>
         </div>
         <div className="but">

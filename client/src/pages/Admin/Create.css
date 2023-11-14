@@ -4,6 +4,7 @@
     gap: 10px;
     width: 80%;
     margin: auto;
+    padding: 50px 0;
 }
 #Create form .arranged{
     display: flex;
@@ -27,4 +28,82 @@
     color: var(--color-6);
     margin: auto;
     background-color: var(--color-1);
+}
+.lists{
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+.lists li{
+    background-color: var(--color-7);
+    color: var(--color-1);
+    border: 1px solid var(--color-2);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-weight: 600;
+    align-items: start;
+}
+.lists li:last-child{
+    margin-bottom: 0;
+}
+.lists .abouts{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.lists .buttons{
+    display: flex;
+    gap: 20px;
+}
+.lists .buttons button, .lists label{
+    padding: 5px 7px;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background-color: rgb(153, 152, 152);
+    cursor: pointer;
+}
+.lists label{
+    background-color: rgb(22, 22, 22);
+    width: fit-content;
+}
+#Create .search{
+    display: flex;
+    border: 1px solid var(--color-1);
+    border-radius: 15px;
+    align-items: center;
+    width: 90%;
+    padding: 3px;
+    margin: 10px auto;
+  }
+  #Create .search input{
+    width: 95%;
+    border: none;
+    background-color: transparent;
+  }
+
+  @media(max-width: 900px){
+    .lists{
+    width: 90%;
+    padding: 15px 0;
+}
+.lists li{
+    margin-bottom: 10px;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 5px;
+}
+.lists .abouts{
+    gap: 10px;
+}
+.lists .buttons{
+    gap: 10px;
+    justify-content: space-between;
+}
+.lists label{
+    align-self: flex-end;
+}
 }

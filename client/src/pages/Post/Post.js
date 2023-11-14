@@ -17,7 +17,7 @@ import PostUn from '../../components/PostUn';
 import Comment from '../../components/Comment';
 
 
-const Post = ({generateNewId}) => {
+const Post = ({generateNewId, url}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   
   const {id} = useParams();
@@ -29,7 +29,7 @@ const Post = ({generateNewId}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/getPosts");
+        const response = await fetch(`${url}/post/getPosts`);
         jsonData = await response.json();
         if(typeof(jsonData) !== "undefined"){
           setAllPosts(jsonData);
@@ -42,12 +42,24 @@ const Post = ({generateNewId}) => {
   }, [jsonData]);
 
   let post;
+  let comments;
+  let likes;
 
   if(allposts.length > 0){
     allposts.filter((blog) =>{
       if(blog.id === id){
-        post = blog;
-      }      
+        post = blog.post;
+        if(typeof(blog.comments) === 'undefined'){
+          comments = [];
+        }else{
+          comments = blog.comments;
+        }
+        if(typeof(blog.likes) === 'undefined'){
+          likes = [];
+        }else{
+          likes = blog.likes;
+        }
+      }
     })
   }  
 
@@ -76,7 +88,7 @@ const Post = ({generateNewId}) => {
     },
     validationSchema,
     onSubmit: (values) => {
-      fetch('http://localhost:5000/addComment', {
+      fetch(`${url}/post/addComment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -85,7 +97,7 @@ const Post = ({generateNewId}) => {
       })
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          // console.log(data);
         })
         .catch(error => {
           console.error('Error:', error);
@@ -101,7 +113,7 @@ const Post = ({generateNewId}) => {
       id: id,
       liker: user.name
     }
-    fetch('http://localhost:5000/likePost', {
+    fetch(`${url}/post/likePost`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -110,7 +122,7 @@ const Post = ({generateNewId}) => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
       })
       .catch(error => {
         console.error('Error:', error);
@@ -130,7 +142,7 @@ const Post = ({generateNewId}) => {
       {allposts.length === 0 ? (
         <p>Loading...</p>
       ) : (
-        <div>
+        <main>
         <div className="Post">
           <p className="big-bold">{post.title}</p>
           <h3>{post.about}</h3>
@@ -138,25 +150,25 @@ const Post = ({generateNewId}) => {
             <p className='time'>{moment(post.date).fromNow()}</p>
             <p className="category">{post.category}</p>
           </div>
-          <div className="content" dangerouslySetInnerHTML={{ __html: post.content }} />
+          <article className="content" dangerouslySetInnerHTML={{ __html: post.content }} />
           {Object.keys(user).length !== 0 ? 
             <PostFoot 
-              numberL={post.likes.length}
+              numberL={likes.length}
               likePost={likePost} 
-              number={post.comments.length} 
+              number={comments.length} 
               onOpen={update} /> : 
               (<PostUn 
-                numberL={post.likes.length} 
-                number={post.comments.length}
+                numberL={likes.length} 
+                number={comments.length}
             />)}
           
         </div>
         <div className="comments">
           {
-            post.comments.length === 0 ? (
+            comments.length === 0 ? (
               <h2>No Comments</h2>
             ):(
-              post.comments.map((cmt) =>(
+              comments.map((cmt) =>(
                 <Comment key={cmt.commentId} comment={cmt}/>
               ))
             )
@@ -184,7 +196,7 @@ const Post = ({generateNewId}) => {
               </div>
             </ModalContent>
           </Modal>
-        </div>
+        </main>
       )}
     </div>
   )

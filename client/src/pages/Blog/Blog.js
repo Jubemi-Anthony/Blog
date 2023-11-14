@@ -8,17 +8,22 @@ import Tops from "../../components/Tops";
 import "./Blog.css";
 import bloggingQuotes from "../../data/bloggingQuotes";
 import { Link } from "react-router-dom";
-  
+import Footer from "../../components/Footer";
 const display = bloggingQuotes[Math.floor(Math.random()*bloggingQuotes.length)];
   
-const Blog = ({blogs}) => {
+// const date = new Date('Febuary 19, 2023 22:40');
+// const timestamp = date.getTime();
 
+// console.log(timestamp);
+
+const Blog = ({blogs, url}) => {
+    const [search, setSearch] = useState('');
     const [post, setPost] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
         try {
-            const response = await fetch("http://localhost:5000/getPosts");
+            const response = await fetch(`${url}/post/getPosts`);
             const jsonData = await response.json();
             setPost(jsonData);
         } catch (error) {
@@ -31,29 +36,55 @@ const Blog = ({blogs}) => {
 
   const scatteredBlogs = shuffle(post);
   const top = [];
-  for(let i=0; i<10; i++){
-      let rand = Math.floor(Math.random() * (blogs.length -1)) + 1;
-      top.push(post[rand])
-  }
 
+  // Use reduce to create an object with category counts
+const categoryCounts = post.reduce((counts, item) => {
+    const { category } = item.post;
+    
+    // Check if category exists in counts object
+    if (counts.hasOwnProperty(category)) {
+      // Increment the count if category already exists
+      counts[category]++;
+    } else {
+      // Initialize the count to 1 if category is encountered for the first time
+      counts[category] = 1;
+    }
+    
+    return counts;
+  }, {});
+  
   return (
     <div id="Blog">
-        <Navbar/>
         <section className="sec-1">
-            <div>
-                <p className="big-bold">{display}</p>
-                <p className="button">Explore</p>
+            <Navbar/>
+            <div className="sec-1i">
+                <p id="displaY" className="big-bold">{display}</p>
             </div>
         </section>
+        <div className="categories">
+        <p className={search === '' ? 'selected' : ''} onClick={() => setSearch('')}> All <span>{scatteredBlogs.length}</span></p>
+            {
+                Object.entries(categoryCounts).map(([key, value]) => (
+                    <p className={search === key ? 'selected' : ''} onClick={() => setSearch(key)} key={key}> {key} <span>{value}</span></p>
+                ))
+            }
+        </div>
         <section className="sec-2">
             <div className="left">
                 <p className="big-bold">Read our Blogs...</p>
                 <div className="grided">
                 {
-                    scatteredBlogs.map((blog) =>(
+                    scatteredBlogs.filter((blog) =>{
+                        if(search === ""){
+                            return blog
+                        }else if(blog.post.category.includes(search) || blog.post.title.toLowerCase().includes(search.toLowerCase())){
+                            return blog
+                        }
+                    }).map((blog) =>(
                         <Link key={blog.id} to={`/Post/${blog.id}`}>
                         <Single
-                            blog={blog}
+                            blog={blog.post}
+                            comments={blog.comments}
                         />
                         </Link>
 
@@ -64,7 +95,7 @@ const Blog = ({blogs}) => {
             <div className="right">
                 <div className="search">
                     <img className="icon" src="https://cdn1.iconfinder.com/data/icons/ionicons-outline-vol-2/512/search-outline-64.png" alt="search" />
-                    <input type="search" placeholder="Read About..."/>
+                    <input onChange={(e) => setSearch(e.target.value)} type="search" placeholder="Read About..."/>
                 </div>
                 <p className="big-bold">Top 10 Posts...</p>
 
@@ -73,7 +104,7 @@ const Blog = ({blogs}) => {
                     {
                         scatteredBlogs.map((blog) => (
                             <Link key={blog.id} to={`/Post/${blog.id}`}>
-                                <Tops blog={blog}/>
+                                <Tops blog={blog.post}/>
                             </Link>
                         ))
                     }
@@ -84,34 +115,10 @@ const Blog = ({blogs}) => {
                     {
                         scatteredBlogs.map((blog) => (
                             <Link key={blog.id} to={`/Post/${blog.id}`}>
-                                <Tops blog={blog}/>
+                                <Tops blog={blog.post}/>
                             </Link>
                         ))
                     }
-                </div>
-                <p className="big-bold">Contact Us...</p>
-                <div className="socials">
-                    <a href="https://twitter.com/AnthonyJubemi">
-                        <img src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-64.png" alt="Twitter" className="icon" />
-                    </a>
-                    <a href="https://www.instagram.com/jubemi_anthony">
-                        <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-64.png" alt="Instagram" className="icon" />
-                    </a>
-                    <a href="https://www.linkedin.com/in/jubemi-anthony-pajiah-626b7323b">
-                        <img src="https://cdn2.iconfinder.com/data/icons/social-media-2102/100/social_media_circled_network-03-64.png" alt="LinkedIn" className="icon" />
-                    </a>
-                    <a href="https://github.com/Jubemi-Anthony">
-                        <img src="https://cdn4.iconfinder.com/data/icons/social-media-and-logos-11/32/Logo_Github-64.png" alt="Github" className="icon" />
-                    </a>
-                    <a href="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo-whatsapp-64.png">
-                        <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo-whatsapp-64.png" alt="Whatsapp" className="icon" />
-                    </a>
-                    <a href="https://t.me/Anthony_Jubemi">
-                        <img className="icon" src="https://cdn3.iconfinder.com/data/icons/social-icons-33/512/Telegram-64.png" alt="Telegram" />
-                    </a>
-                    <a href="https://facebook.com/Jubemi.Genius">
-                        <img className="icon" src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Facebook_colored_svg_copy-64.png" alt="Facebook" />
-                    </a>
                 </div>
             </div>
         </section>

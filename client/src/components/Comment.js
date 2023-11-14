@@ -7,7 +7,7 @@ const Comment = ({comment}) => {
         <div className="com-d">
             <p>{comment.commenter}</p>
             <p>{comment.comment}</p>
-            <p>{moment(comment.date).fromNow()}</p>
+            <p className='comment-time'>{moment(comment.date).fromNow()}</p>
         </div>
     </div>
   )

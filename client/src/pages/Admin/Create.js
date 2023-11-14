@@ -5,7 +5,7 @@ import ReactQuill from "react-quill";
 import Navbar from "../../components/Navbar";
 import "./Create.css";
 
-const Create = ({generateNewId}) => {
+const Create = ({generateNewId, url}) => {
   const validationSchema = Yup.object().shape({
     title: Yup.string().required("Title is required"),
     category: Yup.string().required("Category is required"),
@@ -25,19 +25,17 @@ const Create = ({generateNewId}) => {
   
   const formik = useFormik({
     initialValues: {
-      id: generateNewId(),
+      author: "",
       title: "",
       category: "",
       about: "",
       img: "",
       content: "",
       date: Date.now(),
-      comments: [],
-      likes: 0
     },
     validationSchema,
     onSubmit: (values, { resetForm }) => {
-      fetch('http://localhost:5000/addPost', {
+      fetch(`${url}/post/addPost`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -106,6 +104,19 @@ const Create = ({generateNewId}) => {
           />
           {formik.errors.category && formik.touched.category && (
             <div>{formik.errors.category}</div>
+          )}
+        </div>
+        <div className="arranged">
+          <label htmlFor="author">Author</label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            value={formik.values.author}
+            onChange={formik.handleChange}
+          />
+          {formik.errors.author && formik.touched.author && (
+            <div>{formik.errors.author}</div>
           )}
         </div>
         <div className="arranged">
